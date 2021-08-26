@@ -11,14 +11,17 @@ MediaPlayer.prototype.play = function(){
 MediaPlayer.prototype.pause = function(){
     this.media.pause();
 }
+MediaPlayer.prototype.togglePlay = function(){
+    if(this.media.paused){
+        this.play();
+    } else{
+        this.pause();
+    }
+}
 
 //instancio la clase 
 const player = new MediaPlayer({el: video});
 
 button.onclick = () => {
-    if(video.paused){
-            player.play();
-    }else{
-            player.pause();
-        }
+   player.togglePlay();
 }
