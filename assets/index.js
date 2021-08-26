@@ -1,26 +1,12 @@
+                            /**         NOTA       */
+/*< Si pongo la etiqueta script al principio del body y no al final antes del cierre
+    lo recomendable es poner el atributo "defer" antes del src, asi el html carga el DOM 
+               completo y luego carga el script al final         >*/
+import MediaPlayer from './mediaplayer.js'
+
 const video = document.querySelector('video')
-const button = document.querySelector('button')
-
-//creacion de clase 
-function MediaPlayer(config) {
-    this.media = config.el;
-}
-MediaPlayer.prototype.play = function(){
-    this.media.play();
-}
-MediaPlayer.prototype.pause = function(){
-    this.media.pause();
-}
-MediaPlayer.prototype.togglePlay = function(){
-    if(this.media.paused){
-        this.play();
-    } else{
-        this.pause();
-    }
-}
-
-//instancio la clase 
 const player = new MediaPlayer({el: video});
+const button = document.querySelector('button')
 
 button.onclick = () => {
    player.togglePlay();
