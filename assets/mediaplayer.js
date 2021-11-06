@@ -1,11 +1,15 @@
 
-//creacion de clase 
+//creacion de clase prototipal
 function MediaPlayer(config) {
     this.media = config.el;
     this.plugins = config.plugins || [];
 
     this._initPlugins();
 }
+
+/*  AGREGO FIUNCIONES A MI CLASE MEDIAPLAYER    */
+
+//funciones de play y pausa
 MediaPlayer.prototype.play = function(){
     this.media.play();
 }
@@ -19,11 +23,8 @@ MediaPlayer.prototype.togglePlay = function(){
         this.pause();
     }
 }
-MediaPlayer.prototype._initPlugins = function (){
-    this.plugins.forEach(plugin => {
-        plugin.run(this);
-    });
-}
+
+//funciones de mute 
 MediaPlayer.prototype.mute = function(){
     this.media.muted = true;
 }
@@ -38,5 +39,15 @@ MediaPlayer.prototype.toggleMute = function(){
     }
 }
 
+
+//inicializo mis plugin con un ciclo 
+MediaPlayer.prototype._initPlugins = function (){
+    this.plugins.forEach(plugin => {
+        plugin.run(this);
+    });
+}
+
+
+//exporto mi archivo
 export default MediaPlayer;
 
