@@ -4,10 +4,11 @@ function MediaPlayer(config) {
     this.media = config.el;
     this.plugins = config.plugins || [];
 
-    this._initPlugins();
+    this._initPlugins();//ejecuto la funcion de los plugin automaticamente
 }
 
-/*  AGREGO FIUNCIONES A MI CLASE MEDIAPLAYER    */
+
+/* AGREGO FIUNCIONES A MI CLASE MEDIAPLAYER   */
 
 //funciones de play y pausa
 MediaPlayer.prototype.play = function(){
@@ -15,6 +16,7 @@ MediaPlayer.prototype.play = function(){
 }
 MediaPlayer.prototype.pause = function(){
     this.media.pause();
+    console.log(this)
 }
 MediaPlayer.prototype.togglePlay = function(){
     if(this.media.paused){
