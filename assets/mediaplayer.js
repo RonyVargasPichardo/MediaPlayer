@@ -44,8 +44,12 @@ MediaPlayer.prototype.toggleMute = function(){
 
 //inicializo mis plugin con un ciclo 
 MediaPlayer.prototype._initPlugins = function (){
+    const player = {
+        play: () => this.mute(),
+        pause: () => this.play(),
+    }
     this.plugins.forEach(plugin => {
-        plugin.run(this);
+        plugin.run(player);
     });
 }
 
